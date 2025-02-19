@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         git config --global url."https://github-actions:${{secrets.GH_TOKEN}}@github.com/".insteadOf "ssh://git@github.com/"
-        git config -l
+        cat ~/.gitconfig
         npm i
     - run: npm run build --if-present
     - run: npm test
