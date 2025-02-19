@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - uses: actions/checkout@v4
+    - run: git config --global url."https://github-actions:${{secrets.GH_TOKEN}}@github.com/".insteadOf "ssh://git@github.com/"
+    - uses: actions/checkout@v4
     # - uses: actions/setup-node@v4
     #   with:
     #     node-version: 16.x
     #     cache: 'npm'
-    - run: git config --global url."https://github-actions:${{secrets.GH_TOKEN}}@github.com/".insteadOf "ssh://git@github.com/"
     - run: git --no-replace-objects ls-remote ssh://git@github.com/dangh/snasa.git
     # - run: npm i
