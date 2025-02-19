@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: 22.x
         cache: 'npm'
-    - run: echo diz "${{ secrets.GH_TOKEN }}"
+    - run: echo -n "${{ secrets.GH_TOKEN }}" | wc -c
     - name: Install dependencies
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
