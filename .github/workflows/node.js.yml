@@ -21,12 +21,9 @@ jobs:
       with:
         node-version: 22.x
         cache: 'npm'
-    - run: echo -n "${{ secrets.GH_TOKEN }}" | wc -c
     - name: Install dependencies
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        git config --global url."https://github-actions:${GH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
-    - run: npm ci
+        git config --global url."https://github-actions:${{secrets.GH_TOKEN}}@github.com/".insteadOf "ssh://git@github.com/"
+        npm ci
     - run: npm run build --if-present
     - run: npm test
