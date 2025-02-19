@@ -30,7 +30,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+        git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/"
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
